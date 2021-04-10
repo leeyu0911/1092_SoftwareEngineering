@@ -16,13 +16,13 @@ all_movie = soup.find_all('div', class_="release_info")
 all_movie_picture = soup.find_all('div', class_='release_box')[0].find_all('img')
 
 #%% datatype: ['str', ...]
-movie_title = []
-movie_link = []
-movie_picture = []
-movie_release = []
-movie_content = []
-movie_expectation = []
-movie_satisfaction = []
+movie_title = []         # 電影名稱
+movie_link = []          # 電影連結
+movie_picture = []       # 電影海報
+movie_release = []       # 上映日期
+movie_content = []       # 劇情介紹
+movie_expectation = []   # 網友期待度
+movie_satisfaction = []  # 綜合平分 滿意度
 
 for movie in all_movie:
     movie_title.append(movie.find('a', class_="gabtn").text.split(' ')[-1])
