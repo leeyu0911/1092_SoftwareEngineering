@@ -40,7 +40,8 @@ class yahoo_movie:
 
 
 if __name__ == '__main__':
-    movies = yahoo_movie(30)
+    movies = yahoo_movie(30)  # 抓前30筆上映中的電影資訊
+    print(movies.movies)
 
 
 
