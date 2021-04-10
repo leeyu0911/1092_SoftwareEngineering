@@ -15,7 +15,7 @@ all_movie = soup.find_all('div', class_="release_info")
 # all_arive_date = soup.find_all('div', class_="release_movie_time")
 all_movie_picture = soup.find_all('div', class_='release_box')[0].find_all('img')
 
-#%%
+#%% datatype: ['str', ...]
 movie_title = []
 movie_link = []
 movie_picture = []
