@@ -35,8 +35,8 @@ for movie in all_movie:
 for pic in all_movie_picture:
     movie_picture.append(pic['src'])
 
-#%% datatype: [json, ...]
 
+#%% datatype: [json, ...]
 movies = []
 for i in range(len(all_movie)):
     movies.append(
