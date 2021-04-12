@@ -43,7 +43,7 @@ class yahoo_movie:
             )
         return movies
 
-    def sort_movies(self, values='expectation', reverse=True):
+    def sorted_movies(self, values='expectation', reverse=True):
         """
         根據網友期待度或是滿意度將電影做排序
         :param values: 'expectation' or 'satisfaction'
@@ -66,6 +66,6 @@ if __name__ == '__main__':
     # 抓取所有上映中電影
     all_movies = yahoo_movie()
     # 根據網友期待度由大到小排序
-    movies_sort_by_expectation = all_movies.sort_movies()
-    # 根據網友綜合平分由大到小排序
-    movies_sort_by_satisfaction = all_movies.sort_movies(values='satisfaction')
+    movies_sort_by_expectation = all_movies.sorted_movies()
+    # 根據網友綜合評分由大到小排序
+    movies_sort_by_satisfaction = all_movies.sorted_movies(values='satisfaction')
