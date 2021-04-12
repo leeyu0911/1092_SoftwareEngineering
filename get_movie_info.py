@@ -22,7 +22,7 @@ movie_picture = []       # 電影海報
 movie_release = []       # 上映日期
 movie_content = []       # 劇情介紹
 movie_expectation = []   # 網友期待度
-movie_satisfaction = []  # 綜合平分 滿意度
+movie_satisfaction = []  # 綜合評分 滿意度
 
 for movie in all_movie:
     movie_title.append(movie.find('a', class_="gabtn").text.split(' ')[-1])
