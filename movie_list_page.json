@@ -1,0 +1,48 @@
+{
+    "type": "bubble",
+    "hero": {
+        "type": "image",
+        "url": "",
+        "size": "full",
+        "aspectMode": "cover",
+        "margin": "none",
+        "aspectRatio": "42:60"
+    },
+    "body": {
+        "type": "box",
+        "layout": "vertical",
+        "spacing": "md",
+        "contents": [
+        {
+            "type": "text",
+            "text": "",
+            "size": "lg",
+            "align": "center",
+            "weight": "bold",
+            "style": "italic"
+        },
+        {
+            "type": "separator",
+            "margin": "md",
+            "color": "#FFBB12"
+        },
+        {
+            "type": "text",
+            "size": "xxs",
+            "align": "start",
+            "text": "",
+            "weight": "regular",
+            "wrap":"",
+            "maxLines": 10
+        },
+        {
+            "type": "button",
+            "action": {
+                "type": "uri",
+                "label": "More Info",
+                "uri": ""
+              }
+        }
+        ]
+    }
+    }

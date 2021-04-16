@@ -176,8 +176,8 @@ if __name__ == '__main__':
     """初始化方式"""
     # initial
     ym = YahooMovie()
-    top_30_online_movies = ym.get_movies(30)
-
+    top_30_online_movies = ym.get_movies(True)
+    print(ym._get_total_num())
     # [台北票房榜, 全美票房榜, 預告片榜]
     taipei_top_10 = ym.get_movies_rank('台北票房榜')
     usa_top_10 = ym.get_movies_rank('全美票房榜')  # 全美票房榜 英文的電影沒有超連結 目前是去除的 所以會少於10

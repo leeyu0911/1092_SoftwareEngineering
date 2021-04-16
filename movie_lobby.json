@@ -1,0 +1,78 @@
+{
+  "type": "bubble",
+  "hero": {
+    "type": "image",
+    "url": "https://i.imgur.com/Wwl0I1A.png"
+  },
+  "body": {
+    "type": "box",
+    "layout": "vertical",
+    "spacing": "md",
+    "contents": [
+      {
+        "type": "text",
+        "text": "Movie Lobby",
+        "weight": "bold",
+        "style": "normal",
+        "align": "center",
+        "margin": "sm"
+      },
+      {
+        "type": "separator",
+        "margin": "md"
+      },
+      {
+        "type": "text",
+        "text": "Please select one action",
+        "size": "xxs",
+        "align": "center"
+      },
+      {
+        "type": "button",
+        "action": {
+          "type": "message",
+          "label": "Movie List",
+          "text": "Movie List"
+        }
+      },
+      {
+        "type": "button",
+        "action": {
+          "type": "message",
+          "label": "Hot Movies",
+          "text": "Hot Movies"
+        }
+      },
+      {
+        "type": "button",
+        "action": {
+          "type": "message",
+          "label": "Movie LeaderBoard",
+          "text": "Movie LeaderBoard"
+        }
+      },
+      {
+        "type": "button",
+        "action": {
+          "type": "message",
+          "label": "New Movies",
+          "text": "New Movies"
+        }
+      },
+      {
+        "type": "separator",
+        "margin": "md"
+      },
+      {
+        "type": "button",
+        "style":"primary",
+        "action": {
+          "type": "message",
+          "label": "Back to Menu",
+          "text": "Back to Menu"
+        }
+      }
+    ]
+  }
+
+}
