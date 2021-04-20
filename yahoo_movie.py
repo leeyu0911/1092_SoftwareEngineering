@@ -171,12 +171,19 @@ class YahooMovie:
         else:
             raise Exception(f"目前還沒推出 {values} 排序功能唷~")
 
+    def search(self, title: str):
+        results = []
+        for movie in self.movies:
+            if title in movie['title']:
+                results.append(movie)
+        return results
+
 
 if __name__ == '__main__':
     """初始化方式"""
     # initial
     ym = YahooMovie()
-    top_30_online_movies = ym.get_movies(True)
+    top_30_online_movies = ym.get_movies(30)
     print(ym._get_total_num())
     # [台北票房榜, 全美票房榜, 預告片榜]
     taipei_top_10 = ym.get_movies_rank('台北票房榜')
