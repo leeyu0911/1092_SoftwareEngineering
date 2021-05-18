@@ -35,9 +35,9 @@ class YahooMovie:
             如果是 True 則自動抓取目前所有上映中電影
         """
         if get_all_movies_or_num_of_movies is True:
-            num_of_movies = YahooMovie._get_total_num()
+            num_of_movies = YahooMovie.get_total_num()
         elif isinstance(get_all_movies_or_num_of_movies, int):
-            num_of_movies = min(get_all_movies_or_num_of_movies, YahooMovie._get_total_num())
+            num_of_movies = min(get_all_movies_or_num_of_movies, YahooMovie.get_total_num())
         else:
             num_of_movies = 10
 
@@ -64,17 +64,19 @@ class YahooMovie:
         return self.movies
 
     @staticmethod
-    def _get_soup(page=1):
+    def _get_soup(**kwargs):
         """內部函數，取得網頁原始碼"""
-        movie_url = f"https://movies.yahoo.com.tw/movie_intheaters.html?page={page}"  # 上映中
+        page = kwargs.get('page', 1)
+        movie_url = kwargs.get('movie_url', f"https://movies.yahoo.com.tw/movie_intheaters.html?page={page}")  # 上映中
+
         response = requests.get(movie_url)
         response.encoding = 'utf8'
         return BeautifulSoup(response.text, "html.parser")
 
     @staticmethod
-    def _get_total_num():
+    def get_total_num():
         """內部函數，取得目前上映中電影的數目"""
-        soup = YahooMovie._get_soup(1)
+        soup = YahooMovie._get_soup(page=1)
         text = soup.find('div', class_="release_time _c").text
         toal_num = text[text.find('共') + 1:text.find('筆')]
         return int(toal_num)
@@ -82,7 +84,7 @@ class YahooMovie:
     @staticmethod
     def get_one_page_movies(page: int):
         """取得單一頁面的電影資訊(10筆)，靜態函數可提供外部直接調用"""
-        soup = YahooMovie._get_soup(page)
+        soup = YahooMovie._get_soup(page=page)
 
         all_movie = soup.find_all('div', class_="release_info")
         all_movie_picture = soup.find_all('div', class_='release_box')[0].find_all('img')
@@ -116,16 +118,18 @@ class YahooMovie:
         ranks_of_movies_list : [dict, ...]
             [{
                 'title': str,
-                'link': str of hyperlink
+                'link': str of hyperlink,
+                'photo': str of hyperlink
              },
              ...
             ]
 
         """
-        soup = YahooMovie._get_soup(1)
+        soup1 = YahooMovie._get_soup(page=1)
+
 
         # [台北票房榜, 全美票房榜, 預告片榜]
-        ranks_of_movies = soup.find_all('ul', class_="ranking_list_r")
+        ranks_of_movies = soup1.find_all('ul', class_="ranking_list_r")
 
         if choose == '台北票房榜':
             i = 0
@@ -138,10 +142,13 @@ class YahooMovie:
 
         ranks_of_movies_list = []
         for item in ranks_of_movies[i].find_all('a', class_="gabtn"):  # 有英文時會漏抓
+            soup2 = YahooMovie._get_soup(movie_url=item['href'])
+            photo_url = soup2.find('div', class_="movie_intro_foto")
             ranks_of_movies_list.append(
                 {
                     'title': item['data-ga'].split("'")[-2],  # item.text.replace('\n')
-                    'link': item['href']
+                    'link': item['href'],
+                    'photo': photo_url.img['src']
                 }
             )
         return ranks_of_movies_list
@@ -184,7 +191,7 @@ if __name__ == '__main__':
     # initial
     ym = YahooMovie()
     top_30_online_movies = ym.get_movies(30)
-    print(ym._get_total_num())
+    print(ym.get_total_num())
     # [台北票房榜, 全美票房榜, 預告片榜]
     taipei_top_10 = ym.get_movies_rank('台北票房榜')
     usa_top_10 = ym.get_movies_rank('全美票房榜')  # 全美票房榜 英文的電影沒有超連結 目前是去除的 所以會少於10
@@ -198,6 +205,6 @@ if __name__ == '__main__':
     movies_sort_by_release = ym.sorted_movies('release')
 
     """其他特殊用法"""
-    YahooMovie._get_total_num()  # 取得目前上映中電影的筆數
+    YahooMovie.get_total_num()  # 取得目前上映中電影的筆數
     YahooMovie.get_movies_rank()  # 直接取得排行榜
     YahooMovie.get_one_page_movies(7)  # 直接取得第七頁的電影資訊
