@@ -1,0 +1,86 @@
+{
+    "type": "bubble",
+    "body": {
+      "type": "box",
+      "layout": "vertical",
+      "contents": [
+        {
+          "type": "image",
+          "url": "https://scdn.line-apps.com/n/channel_devcenter/img/flexsnapshot/clip/clip1.jpg",
+          "size": "full",
+          "aspectMode": "cover",
+          "aspectRatio": "42:60",
+          "gravity": "top"
+        },
+        {
+          "type": "box",
+          "layout": "vertical",
+          "contents": [
+            {
+              "type": "box",
+              "layout": "vertical",
+              "contents": [
+                {
+                  "type": "text",
+                  "text": "Brown's T-shirts",
+                  "size": "xl",
+                  "color": "#ffffff",
+                  "weight": "bold",
+                  "wrap" : true,
+                  "align" : "center"
+                },
+                {
+                    "type": "separator",
+                    "color": "#FFBB77",
+                    "margin": "md"
+                }
+              ]
+            },
+            {
+              "type": "box",
+              "layout": "vertical",
+              "contents": [
+                {
+                    "type": "button",
+                    "action": {
+                            "type": "uri",
+                            "label": "More Info",
+                            "uri": ""
+                    }
+                }
+              ]
+            }
+          ],
+          "position": "absolute",
+          "offsetBottom": "0px",
+          "offsetStart": "0px",
+          "offsetEnd": "0px",
+          "backgroundColor": "#03303Acc",
+          "paddingAll": "20px",
+          "paddingTop": "18px"
+        },
+        {
+          "type": "box",
+          "layout": "vertical",
+          "contents": [
+            {
+              "type": "text",
+              "text": "SALE",
+              "color": "#ffffff",
+              "align": "center",
+              "size": "xs",
+              "offsetTop": "3px"
+            }
+          ],
+          "position": "absolute",
+          "cornerRadius": "20px",
+          "offsetTop": "18px",
+          "backgroundColor": "#ff334b",
+          "offsetStart": "18px",
+          "height": "25px",
+          "width": "53px"
+        }
+      ],
+      "paddingAll": "0px"
+    }
+  }
