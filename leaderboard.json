@@ -1,0 +1,70 @@
+{
+    "type": "bubble",
+    "hero": {
+      "type": "image",
+      "url": "https://i.imgur.com/FHw36Py.png"
+    },
+    "body": {
+      "type": "box",
+      "layout": "vertical",
+      "spacing": "md",
+      "contents": [
+        {
+          "type": "text",
+          "text": "Movie LeaderBoard",
+          "weight": "bold",
+          "style": "normal",
+          "align": "center",
+          "margin": "sm"
+        },
+        {
+          "type": "separator",
+          "margin": "md"
+        },
+        {
+          "type": "text",
+          "text": "Please select one action",
+          "size": "xxs",
+          "align": "center"
+        },
+        {
+          "type": "button",
+          "action": {
+            "type": "message",
+            "label": "Taipei Box Office",
+            "text": "Taipei Box Office"
+          }
+        },
+        {
+          "type": "button",
+          "action": {
+            "type": "message",
+            "label": "Trailer Rank",
+            "text": "Trailer Rank"
+          }
+        },
+        {
+          "type": "button",
+          "action": {
+            "type": "message",
+            "label": "US Rank",
+            "text": "US Rank"
+          }
+        },
+        {
+          "type": "separator",
+          "margin": "md"
+        },
+        {
+          "type": "button",
+          "style":"primary",
+          "action": {
+            "type": "message",
+            "label": "Back to Movie Lobby",
+            "text": "Back to Movie Lobby"
+          }
+        }
+      ]
+    }
+  
+  }
